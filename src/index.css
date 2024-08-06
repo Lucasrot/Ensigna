@@ -17,25 +17,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #ffffff;
-  text-decoration: inherit;
-  will-change: filter;
-  transition: filter 300ms;
-  -webkit-transition: filter 300ms;
-  -moz-transition: filter 300ms;
-  -ms-transition: filter 300ms;
-  -o-transition: filter 300ms;
-}
-a:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-  -webkit-filter: drop-shadow(0 0 2em #646cffaa);
-}
-a.react:hover {
-  filter: drop-shadow(0 0 2em #3c99b3aa);
-  -webkit-filter: drop-shadow(0 0 2em #3c99b3aa);
-}
 
 h1 {
   font-size: 3.2em;

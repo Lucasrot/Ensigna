@@ -2,6 +2,7 @@ header {
     height: 80px;
     width: 100%;
     margin-bottom: 18px;
+    background-color: #000000;
 }
 
 .navbar {
@@ -9,27 +10,22 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 18px;
-    background-color: #2b2a2a;
     color: #fff;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
-
 .navbar-logo img {
     height: 50px;
 }
 .navbar-logo {
     will-change: filter;
     transition: filter 300ms;
+    -webkit-transition: filter 300ms;
+    -moz-transition: filter 300ms;
+    -ms-transition: filter 300ms;
+    -o-transition: filter 300ms;
 }
 .navbar-logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.navbar-logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #64ff71fb);
+    -webkit-filter: drop-shadow(0 0 2em #64ff71aa);
 }
 
 .navbar-list {
@@ -38,6 +34,18 @@ header {
     margin: 0;
     padding: 0;
 }
-.navbar-item:hover {
-    color: rgb(255, 60, 0);
+
+.navbar-list-a {
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+.navbar-list-a:hover {
+    color: #64ff71aa;
+}
+
+.active{
+    color: #ffa114aa;
 }

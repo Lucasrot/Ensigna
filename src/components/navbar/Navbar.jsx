@@ -2,6 +2,9 @@
 import CartWidget from "../cartWidget/CartWidget";
 import './navbar.css';
 import Logo from '../../assets/img/Logo.png';
+import NavbarLink from "./NavbarLink";
+
+import { Link } from "react-router-dom";
 
 const Navbar = ({ categories }) => {
     return (
@@ -9,13 +12,14 @@ const Navbar = ({ categories }) => {
             <header>
                 <nav className="navbar">
                     <div className="navbar-logo">
-                        <img src={Logo} alt="Logo" />
+                        <Link to="/">
+                            <img src={Logo} alt="Logo" />
+                        </Link>
                     </div>
                     <div className="navbar-list">
-                        <a href="#"> {categories[0]} </a>
-                        <a href="#"> {categories[1]} </a>
-                        <a href="#"> {categories[2]} </a>
-                        <a href="#"> {categories[3]} </a>
+                        {categories.map((category, index) => {
+                            return <NavbarLink key={index} categories={category} />;
+                        })}
                     </div>
                     <CartWidget />
                 </nav>
