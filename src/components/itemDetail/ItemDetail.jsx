@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Card from 'react-bootstrap/Card';
-import ItemCount from "../ItemCount/ItemCount";
+import ItemCount from "../ItemCount/ItemCount.jsx";
 import { useCartContext } from '../../context/CartContext';
 
 const ItemDetail = ({id, name, description, price, image, stock}) => {   
