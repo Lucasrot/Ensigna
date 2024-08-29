@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ItemDetail from '../ItemDetail/ItemDetail';
+import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 import {db} from '../../firebase/dbConnection';
 import { collection, getDoc, doc} from "firebase/firestore";
 import { Spinner } from "../spiner/Spinner.jsx";
