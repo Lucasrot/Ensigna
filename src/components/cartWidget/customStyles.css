@@ -1,7 +1,7 @@
-.hover-link {
+.carrito1:hover-link {
     transition: color 0.3s ease;
 }
 
-.hover-link:hover {
-    color: #64ff71; 
+.carrito1:hover-link:hover {
+    background-color: #64ff71; 
 }
