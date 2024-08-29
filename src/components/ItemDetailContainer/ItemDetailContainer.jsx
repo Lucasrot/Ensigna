@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ItemDetail from "../ItemDetail/ItemDetail";
 import {db} from '../../firebase/dbConnection';
 import { collection, getDoc, doc} from "firebase/firestore";
-import { Spinner } from "../spiner/Spinner.jsx";
-import ItemDetail from "../ItemDetail/ItemDetail.jsx";
+import { Spinner } from "../spiner/Spinner";
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-
 
     useEffect(() => {
         setLoading(true);

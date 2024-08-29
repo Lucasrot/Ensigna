@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import Card from 'react-bootstrap/Card';
+import ItemCount from "../ItemCount/ItemCount";
 import { useCartContext } from '../../context/CartContext';
-import ItemCount from "../ItemCount/ItemCount.jsx";
 
 const ItemDetail = ({id, name, description, price, image, stock}) => {   
   const { addToCart } = useCartContext();
@@ -29,5 +28,4 @@ const ItemDetail = ({id, name, description, price, image, stock}) => {
   );
 };
 
-export default ItemDetail
-
+export default ItemDetail;
