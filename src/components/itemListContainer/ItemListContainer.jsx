@@ -1,44 +1,52 @@
 /* eslint-disable react/prop-types */
-
 import { useState, useEffect } from "react";
-import ItemList from '../ItemList/ItemList';
-import { getProducts } from "../../util/fetchData.js";
+import { collection, getDocs, query, where} from "firebase/firestore";
+import { db } from "../../firebase/dbConnection";
+import { useCartContext } from "../../context/CartContext";
+import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { Spinner } from "../spiner/Spinner.jsx";
 
-const ItemListContainer = ({ title }) => {
+const ItemListContainer = () => {
+  
   const [products, setProducts] = useState([]);
-
-  const { categoriesId } = useParams();
-
+  const { categoryId } = useParams();
   const [loading, setLoading] = useState(true);
+  const { titulo, titulo2 } = useCartContext();
+
+  let titleToShow = titulo + " " + titulo2;
+
 
   useEffect(() => {
-    console.log("se cargo el useEffect");
     setLoading(true);
-    getProducts(categoriesId)
-      .then((res) => {
-        console.log("se presento el array");
-        setProducts(res);
-        console.log("se cargo el array");
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        console.log("Finally");
-        setLoading(false);
-      });
-  }, [categoriesId]);
-
+    let productsCollection = collection(db, "productos")
+    if (categoryId) {
+      productsCollection = query(productsCollection, where("category", "array-contains", categoryId));
+    }
+    
+    getDocs(productsCollection)
+    .then(({docs}) => {
+      const prodFromDocs = docs.map((doc)=>({
+        id: doc.id,
+        ...doc.data()
+      }))
+      setProducts(prodFromDocs)
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.error("Error getting documents: ", error);
+    });
+ 
+  }, [categoryId]);
 
 
   return (
     <section>
-      <h2>{title}</h2>
+      <h2>{titleToShow}</h2>
         <div>
-          {loading ? <Spinner /> :
-            <ItemList products={products} />
+          {loading ? <Spinner /> 
+          :
+          <ItemList products={products} />
           }
         </div>
     </section>

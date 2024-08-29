@@ -1,0 +1,16 @@
+.carrito{
+    height: 100vh;
+}
+.boton1{
+    margin: 0px 5px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+}
+.inputs{
+    display: flex;
+    justify-content: space-around;
+    
+}

@@ -1,0 +1,50 @@
+.about-section {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .about-section h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+  
+  .about-section p {
+    margin-bottom: 1rem;
+  }
+  
+  .about-team {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .about-team-member {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .img-programando {
+    width: auto;
+    height: 14rem;
+  }
+  
+  .about-team-member h3 {
+    margin: 0.5rem 0;
+  }
+  
+  .about-team-member p {
+    margin: 0.5rem 0;
+  }
+  

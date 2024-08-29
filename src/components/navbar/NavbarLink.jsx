@@ -3,12 +3,12 @@
 import { NavLink } from "react-router-dom";
 import './navbar.css';
 
-const NavbarLink = ({ categories }) => {
+const NavbarLink = ({ category }) => {
     return (
-        <NavLink to={`/categoria/${categories}`} className='navbar-list-a'>
-            {categories}
+        <NavLink to={`/category/${category}`} className="navbar-list-a">
+            {category}
         </NavLink>
     );
 };
 
-export default NavbarLink
+export default NavbarLink;

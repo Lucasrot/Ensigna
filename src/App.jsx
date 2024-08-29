@@ -1,28 +1,33 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './pages/Layout.jsx';
-import ItemListContainer from './components/itemListContainer/ItemListContainer';
-import { categories } from './mock/MockData.js';
-import Error404 from './components/error/Error404.jsx';
-import ItemDetailConteiner  from "./components/itemDetailConteiner/ItemDetailConteiner.jsx";
+import AboutUs from "./components/AboutUs/AboutUs.jsx";
+import Contact from "./components/contact/Contact.jsx";
+import ItemListContainer from "./components/itemListContainer/ItemListContainer.jsx";
+import Layout from "./pages/Layout.jsx";
+import Error404 from "./components/error/Error404.jsx";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer.jsx";
+import Cart from "./components/Cart/Cart.jsx";
+import CartContextProvider from './context/CartContext.jsx';
 
 function App() {
-  const title = "Productos";
+
 
   return (
-    <>
+    <CartContextProvider>
       <BrowserRouter>
-        <Layout categories={categories}>
+        <Layout>
           <Routes>
-            <Route path="/" element={<ItemListContainer title={title} />} />
-            <Route path="/categoria/:categoriesId" element={<ItemListContainer title={title} />} />
-            <Route path="/product/:id" element={<ItemDetailConteiner />} />
-            <Route path="/contact" element={<h1>Lucas</h1>} />
-            <Route path='*' element={<Error404 />} />
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer/>} />
+            <Route path="/product/:id" element={<ItemDetailContainer />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </Layout>
       </BrowserRouter>
-    </>
+    </CartContextProvider>
   );
 }
 

@@ -1,15 +1,15 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
+import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 
-const Layout = ({ children, categories }) => {
-    return (
-        <>
-            <Navbar categories={categories} />
-            {children}
-        </>
-    );
-}
+// eslint-disable-next-line react/prop-types
+const Layout = ({ children }) => {
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
+  );
+};
 
 export default Layout;

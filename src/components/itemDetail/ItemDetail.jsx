@@ -1,60 +1,33 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import Button from 'react-bootstrap/Button';
+/* eslint-disable react/prop-types */
 import Card from 'react-bootstrap/Card';
-import { useState } from 'react';
+import ItemCount from '../ItemCount/ItemCount';
+import { useCartContext } from '../../context/CartContext';
 
-const ItemDetail = (id, category, name, description, price, image) => {
+const ItemDetail = ({id, name, description, price, image, stock}) => {   
+  const { addToCart } = useCartContext();
 
-    const stock = 20;
-    const unidad = 1;
+    const handleOnBuy = (qty) => {
+        console.log(`Se agregaron ${qty} productos al carrito`);
+        const item = {id, name, description, price};
+        addToCart(item, qty);
+    }
 
-    const [cantidad, setCantidad] = useState(unidad);
-
-    const handleClick = (operacion) => {
-        operacion === "-" ? clipRestar() : clipSumar();
-    };
-
-    const clipRestar = () => {
-        if (cantidad === 1) {
-            alert("No se puede restar");
-            return;
-        }
-        setCantidad(cantidad - 1);
-    };
-
-    const clipSumar = () => {
-        if (cantidad === stock) {
-            alert("No hay stock");
-            return;
-        }
-        setCantidad(cantidad + 1);
-    };
-
-    return (
-        <section>
-            <Card style={{ width: '14rem' }}>
-                <Card.Header as="h5">{category}</Card.Header>
-                <Card.Img variant="top" src={image} />
-                <Card.Body>
-                    <Card.Title as="h2">{name}</Card.Title>
-                    <Card.Text>
-                        {description}
-                    </Card.Text>
-                    <Card.Text>
-                        ${price}
-                    </Card.Text>
-                    <div className='p-1'>
-                        <button onClick={() => handleClick("-")}>-</button>
-                        <span>{cantidad}</span>
-                        <button onClick={() => handleClick("+")}>+</button>
-                    </div>
-                    <Button variant="primary">comprar</Button>
+  return (
+      <main className='d-flex justify-content-center align-items-center m-2'>
+          <Card style={{ width: '16rem'}}>
+            <Card.Header as="h1">{name}</Card.Header>
+            <Card.Img variant="top" src={image} />
+              <Card.Body>
+                <Card.Text>{description}</Card.Text>
+                <Card.Text>${price}</Card.Text>
+                <ItemCount stock={stock} initial={1} handleOnBuy={handleOnBuy}/>
                 </Card.Body>
-                <Card.Footer className="text-muted">Solo quedan {stock} disponibles</Card.Footer>
-            </Card>
-        </section>
-    )
-}
+            <Card.Footer className="text-muted">Solo quedan {stock}</Card.Footer>
+          </Card>
+      </main>
+  );
+};
 
 export default ItemDetail
+
