@@ -1,3 +1,5 @@
+# ![Coderhouse](https://styles.redditmedia.com/t5_5blkvq/styles/communityIcon_t5ji6wuld2z71.jpg?format=pjpg&s=1672be49333cd14749784be8bbc3c968a033d8e0)
+
 # E-commerce React Project
 Este proyecto es un e-commerce desarrollado en el marco del curso de React en Coderhouse. Se trata de una Single Page Application (SPA) que permite a los usuarios explorar una variedad de productos, agregar productos al carrito de compras, y realizar una compra que se almacena en una base de datos de Firebase.
 
@@ -19,13 +21,13 @@ Firebase: Necesitas una cuenta de Firebase y un proyecto configurado para utiliz
 Instalación del Proyecto
 Clona este repositorio:
 
-bash
+``bash
 Copiar código
 git clone https://github.com/tu-usuario/nombre-del-repositorio.git
 cd nombre-del-repositorio
 Instala las dependencias:
 
-bash
+``bash
 Copiar código
 npm install
 Configura Firebase:
@@ -42,16 +44,14 @@ VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
 Inicia el proyecto:
 
-bash
-Copiar código
+``bash
 npm run dev
 Esto abrirá el proyecto en tu navegador en http://localhost:3000.
 
 # Estructura del Proyecto
 El proyecto sigue una estructura de carpetas organizada:
 
-bash
-Copiar código
+```text
 ├── src
 │   ├── components   # Componentes reutilizables
 │   ├── context      # Contextos de React (e.g., CartContext)
